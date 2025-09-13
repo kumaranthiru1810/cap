@@ -139,33 +139,60 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <img src="./img/car1.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" />
-                    <h2 class="mb-3">Hyundai i20</h2>
-                    <p>Base rate - &#8377;1000</p>
-                    <p>Per km - &#8377;12</p>
-                    <p>Passengers - 4</p>
+                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3">Tempo - 18 Seat</h2>
+                    <p>Base rate - &#8377;4500</p>
+                    <p>Per km - &#8377;18</p>
+                    <p>Passengers - 18</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <img src="./img/car2.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo2.png " class="car-logo mt-3 mb-3" />
+                    <!-- <img src="./img/car2.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo2.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3">URBANIA - 16 Seat</h2>
+                    <p>Base rate - &#8377;8000</p>
+                    <p>Per km - &#8377;25</p>
+                    <p>Passengers - 16</p>
+                    <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="car-container text-center car-btn">
+                    <!-- <img src="./img/car3.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo3.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3">Tempo - 14 Seat</h2>
+                    <p>Base rate - &#8377;3800</p>
+                    <p>Per km - &#8377;17</p>
+                    <p>Passengers - 14</p>
+                    <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="car-container text-center car-btn">
                     <h2 class="mb-3">Suzuki Swift</h2>
-                    <p>Base rate - &#8377;1200</p>
-                    <p>Per km - &#8377;13</p>
+                    <p>Base rate - &#8377;1500</p>
+                    <p>Per km - &#8377;11</p>
                     <p>Passengers - 4</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <img src="./img/car3.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo3.png " class="car-logo mt-3 mb-3" />
                     <h2 class="mb-3">Toyota Innova</h2>
-                    <p>Base rate - &#8377;1500</p>
-                    <p>Per km - &#8377;15</p>
+                    <p>Base rate - &#8377;2500</p>
+                    <p>Per km - &#8377;14</p>
+                    <p>Passengers - 7</p>
+                    <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="car-container text-center car-btn">
+                    <h2 class="mb-3">Innova Crysta</h2>
+                    <p>Base rate - &#8377;3500</p>
+                    <p>Per km - &#8377;16</p>
                     <p>Passengers - 7</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>

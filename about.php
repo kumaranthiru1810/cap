@@ -144,15 +144,17 @@
                 <p>Few Words About Garuda Holidays Travels
 </p>
                 <h1>Learn about our Cab Company</h1>
-                <p class="text-justify about-content">Lorem ipsum dolor sit amet consectetur. Consequat eu nec diam
-                    lobortis mattis. At maecenas semper
-                    orci non lorem in tempus. Aliquam ultricies tortor ultrices vestibulum integer. Suscipit praesent in
-                    in diam accumsan nisi consequat nisi. Pellentesque vel at porttitor et lobortis est. Feugiat dolor
-                    ut scelerisque tristique porta justo. Amet tincidunt lorem et rutrum eget amet tincidunt nulla.
-                    Varius nunc at euismod pretium sit adipiscing feugiat eget. Elit sed eu dui ac vitae rhoncus massa
-                    urna. Eget gravida ornare id pellentesque ultricies. Nisl pellentesque convallis quis mi elementum
-                    risus eget. Nec donec sit nullam nec dolor proin quam. Enim vulputate mauris nulla amet urna.
-                    Egestas elementum volutpat ut enim nunc id in.</p>
+                <p class="text-justify about-content">Welcome to Garuda Holidays Travels! Based in Dindigul, we have been a trusted name
+                    in travel for over 25 years. Our passion is crafting memorable and safe journeys for you and your
+                    loved ones. We specialize in providing comprehensive travel solutions, including personalized
+                    holiday packages and serene religious and spiritual tour packages across all of India.<br>
+                    We understand that a great trip starts with a reliable ride. Our diverse fleet—including
+                    comfortable 4-seater cabs, spacious Innova cars, and AC-equipped 14, 16, and 18-seater
+                    tempos—is available 24/7 to ensure your travel is always hassle-free.<br>
+                    Over the decades, we have successfully completed countless safe journeys, building a reputation
+                    for punctuality, professionalism, and unwavering dedication to our customers. At Garuda
+                    Holidays Travels, we are committed to making your travel dreams a reality, one safe and
+                    comfortable trip at a time.</p>
             </div>
             <div class="col-12 col-md-6 about-driver d-none d-md-block mb-5 my-5">
                 <img src="./img/aboutdriver.png" width="430px" height="415px" class="position-absolute img-fluid" />
@@ -213,14 +215,14 @@
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
                     <img src="./img/offer1.png" class="img-fluid"/>
-                    <h2>One way Trip</h2>
-                    <p>Travel to a destination without returning to the starting point, often for relocation, exploration, or specific events.</p>
+                    <h2>Tour Packages</h2>
+                    <p>A tour package bundles together travel, accommodation, and activities for a single, convenient price.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
-                    <img src="./img/offer2.png" class="img-fluid"/>/>
+                    <img src="./img/offer2.png" class="img-fluid"/>
                     <h2>Round Trip</h2>
                     <p>Daily commute, a rhythmic journey between work and home, a familiar cycle.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
@@ -228,7 +230,7 @@
             </div>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
-                    <img src="./img/offer3.png" class="img-fluid"/>/>
+                    <img src="./img/offer3.png" class="img-fluid"/>
                     <h2>Outstation Trip</h2>
                     <p>The excitement of travel with the discovery of new destinations, offering a change of scenery and pace.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
