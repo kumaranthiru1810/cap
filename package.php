@@ -140,10 +140,8 @@
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
                     <img src="./img/offer1.png" class="img-fluid" />
-                    <h2>One way Trip</h2>
-                    <p>Travel to a destination without returning to the starting point, often for relocation,
-                        exploration,
-                        or specific events.</p>
+                    <h2>Tour Packages</h2>
+                    <p>A tour package bundles together travel, accommodation, and activities for a single, convenient price.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book cab Now</a></button>
                 </div>
             </div>
@@ -175,12 +173,15 @@
                 <p>Organized Tours</p>
                 <h1>Special Packages</h1>
             </div>
+            <div class="col-12 text-left mb-4">
+                <h2>Holiday Tour</h2>
+            </div>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
                     <img src="./img/packages/Kodaikkanal.jpg" class="img-fluid" />
                     <h2>Kodaikkanal</h2>
                     <p>A serene hill station known for its lush greenery, waterfalls, and pleasant climate.
-Ideal for trekking, boating, and enjoying nature’s tranquility.</p>
+                        Ideal for trekking, boating, and enjoying nature’s tranquility.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
@@ -229,6 +230,45 @@ A popular destination for honeymooners and families.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/packages/mysore.jpg" class="img-fluid" />
+                    <h2>Mysore</h2>
+                    <p>Mysore, the City of Palaces, is famed for its majestic architecture, rich traditions, and vibrant festivals. From Mysore Palace to Brindavan Gardens and Chamundi Hills, the city offers heritage, charm, and scenic beauty. </p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/packages/bangalore.jpg" class="img-fluid" />
+                    <h2>Bangalore</h2>
+                    <p>Bangalore, the Garden City of India, is famed for its modern skyline, lush parks, and vibrant culture. From Cubbon Park to Lalbagh, Vidhana Soudha, and bustling MG Road, the city blends heritage, innovation, and cosmopolitan charm.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/packages/coorg.jpg" class="img-fluid" />
+                    <h2>Coorg</h2>
+                    <p>Coorg, often called the Scotland of India, charms visitors with its rolling hills, aromatic coffee estates, and tranquil beauty. With its ancient temples, vibrant markets, and enchanting waterfalls, it promises both peace and adventure.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/packages/goa.jpg" class="img-fluid" />
+                    <h2>Goa</h2>
+                    <p>Goa, India’s coastal paradise, is celebrated for its sun-kissed beaches, vibrant nightlife, and colonial charm. From serene churches to bustling markets and breathtaking waterfalls, it offers the perfect mix of relaxation and adventure.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="col-12 text-left mb-4">
+                <h2>Religious and spiritual tour packages</h2>
+        </div>
+        <br>
+        <div class="row">
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
                     <img src="./img/packages/Thirupathi.jpg" class="img-fluid"/>
@@ -280,6 +320,30 @@ Nestled amidst scenic hills and rich forest, perfect for spiritual visits.</p>
                     <h2>Sabarimala</h2>
                     <p>A renowned pilgrimage center dedicated to Lord Ayyappa, attracting millions annually.
 Set in the Western Ghats, it’s known for its challenging trek and sacred rituals.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/packages/dharmasthala.jpg" class="img-fluid"/>
+                    <h2>Dharmasthala</h2>
+                    <p>Dharmasthala, often hailed as the Land of Righteousness, captivates visitors with its spiritual aura, scenic surroundings, and cultural richness. With its revered temples, and serene riverside, it promises both devotion and tranquility.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/packages/udupi.jpg" class="img-fluid"/>
+                    <h2>Udupi</h2>
+                    <p>Udupi, famed as the Temple Town, enchants visitors with its spiritual charm, coastal beauty, and culinary legacy. With its ancient Krishna temple, golden beaches, and vibrant traditions, it offers a perfect blend of devotion and serenity.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/packages/murdeshwara.jpg" class="img-fluid"/>
+                    <h2>Murdeshwara</h2>
+                    <p>Murdeshwar, home to the world’s second-tallest Shiva statue, captivates with its divine aura and coastal beauty. With its grand temple, serene beaches, and breathtaking views, it offers both spirituality and tranquility.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
