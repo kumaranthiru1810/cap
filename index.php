@@ -189,18 +189,17 @@
                                     </div>
                                     <div class="d-md-flex flex-row justify-content-between">
                                         <div class="input-group mb-4 mr-3">
-                                            <input type="Date" class="form-control" placeholder="Select Date">
-                                            <!-- <div class="input-group-append">
-                                                <span class="input-group-text"><i
-                                                        class="fa-solid fa-calendar-days"></i></span>
-                                            </div> -->
+                                            <input type="text" class="form-control" placeholder="dd-mm-yyyy">
+                                            <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                </div>
                                         </div>
                                         <div class="input-group mb-4">
-                                            <input type="time" class="form-control" placeholder="Select Time">
-                                            <!-- <div class="input-group-append">
+                                            <input type="text" class="form-control" placeholder="Select Time">
+                                            <div class="input-group-append">
                                                 <span class="input-group-text"><i
                                                         class="fa-regular fa-clock"></i></span>
-                                            </div> -->
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="d-md-flex flex-row justify-content-between">
