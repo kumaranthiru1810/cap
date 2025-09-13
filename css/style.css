@@ -26,6 +26,7 @@
     font-weight: bold;
     margin-left:35px;
     padding:10px;
+    font-size: 13.5px;
 }
 .navbar-nav .nav-link:hover {
     color: #000000; 
@@ -201,12 +202,12 @@ color:#FFC107;
     cursor:pointer;
 }
 .home-text h1{
-    font-weight:800;
-    font-size:70px;
+    font-weight: 700;
+    font-size: 65px;
 }
 .home-text1 h1{
     font-weight:600;
-    font-size:28px;
+    font-size:23px;
 }
 .home-text1 button{
     background-color:#FFC107;

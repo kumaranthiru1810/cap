@@ -177,6 +177,28 @@
             </div>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
+                    <img src="./img/services/tempo.jpg" class="img-fluid"/>
+                    <h2>AC tempo on hire </h2>
+                    <p>Hire our air-conditioned tempo travellers for comfortable group travel and long-distance trips.
+Our fleet includes 14, 16, and 18-seater tempos, all equipped with powerful AC to ensure a
+smooth and relaxing journey for all passengers. These spacious and well-maintained vehicles are
+
+perfect for any group adventure.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
+                    <img src="./img/services/ts.jpg" class="img-fluid"/>
+                    <h2>Taxi service</h2>
+                    <p>Our reliable taxi service offers comfortable and timely rides across the city and beyond.
+We provide a variety of vehicles to suit your travel needs at affordable rates, including
+the spacious <strong>Innova</strong>, the dependable <strong>Etios</strong>, and the efficient <strong>Swift Dzire</strong>.</p>
+                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <div class="offer-container text-center">
                     <img src="./img/services/dj.jpg" class="img-fluid" />
                     <h2> Dindigul Junction</h2>
                     <p>Dindigul Junction is a major railway hub connecting southern Tamil Nadu to key cities across India.
@@ -212,28 +234,10 @@ It offers extensive domestic and international connectivity across Asia, Europe,
             </div>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
-                    <img src="./img/services/ts.jpg" class="img-fluid"/>
-                    <h2>Taxi service</h2>
-                    <p>Our reliable taxi service offers comfortable and timely rides across the city and beyond.
-Choose from a variety of vehicles to suit your travel needs at affordable rates.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
                     <img src="./img/services/van.jpg" class="img-fluid"/>
                     <h2>Van on hire </h2>
                     <p>Rent spacious vans perfect for group travel, family outings, or corporate trips.
 Enjoy flexible hire durations with professional drivers for a hassle-free journey.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/services/tempo.jpg" class="img-fluid"/>
-                    <h2>AC tempo on hire </h2>
-                    <p>Hire our air-conditioned tempo travellers for comfortable group travel and long-distance trips.
-Spacious and well-maintained vehicles ensure a smooth and relaxing journey for all passengers.</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>

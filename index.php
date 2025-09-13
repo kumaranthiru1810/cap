@@ -17,7 +17,7 @@
 
 
     <title>Garuda holidays travels
-</title>
+    </title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@
                             <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
                         </div>
                         <div>
-                            <p><i class="fa-solid fa-envelope"></i>garudaholidaystravels@gmail.com 
-</p>
+                            <p><i class="fa-solid fa-envelope"></i>garudaholidaystravels@gmail.com
+                            </p>
                         </div>
                         <div>
                             <p><i class="fa-solid fa-user"></i> <a href="login.php" style="color: white; text-decoration:none;">Login</a></p>
@@ -49,12 +49,12 @@
                         <!-- Left section (Phone & Email) -->
                         <div class="d-flex flex-row ">
                             <div class="mr-4 ml-5">
-                               <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
-                            <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
+                                <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
+                                <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
                             </div>
                             <div>
-                                <p><i class="fa-solid fa-envelope"></i>garudaholidaystravels@gmail.com 
-</p>
+                                <p><i class="fa-solid fa-envelope"></i>garudaholidaystravels@gmail.com
+                                </p>
                             </div>
                         </div>
 
@@ -129,7 +129,7 @@
                 </div>
                 <div data-aos="fade-up" data-aos-delay="900" loading="lazy" class="home-text1 mt-4 text-center">
                     <h1 class="text-white mb-4">Fast, Safe & Affordable Rides with garudaholidaystravels
-</h1>
+                    </h1>
                     <!-- <button class="mt-3">Book a Ride</button> -->
                 </div>
                 <div data-aos="fade-down" data-aos-delay="1000" loading="lazy" class="home-text1 mt-4 text-center">
@@ -189,7 +189,7 @@
                                     </div>
                                     <div class="d-md-flex flex-row justify-content-between">
                                         <div class="input-group mb-4 mr-3">
-                                            <input type="Date"  class="form-control" placeholder="Select Date">
+                                            <input type="Date" class="form-control" placeholder="Select Date">
                                             <!-- <div class="input-group-append">
                                                 <span class="input-group-text"><i
                                                         class="fa-solid fa-calendar-days"></i></span>
@@ -252,36 +252,52 @@
                         </div>
                     </div>
                     <div class="mt-4 abt-content">
-                        <p>Our cab service offers reliable, punctual, and affordable transportation with professional
-                            drivers. Whether for airport transfers, city commutes, or special events, we ensure a
-                            comfortable and safe journey. With easy booking and 24/7 availability, we provide a
-                            hassle-free travel experience tailored to your needs.</p>
+                        <p>Our cab service offers a comfortable and safe journey with professional drivers, available 24/7
+                            for all your needs. Whether you need a ride for airport transfers, city commutes, or special
+                            events, our diverse fleet has you covered.</p>
                     </div>
                     <div class="mt-4">
                         <div class="d-md-flex flex-row">
                             <img src="./img/phone.png" width="60px" height="60px" class="mr-3" />
                             <p class="mr-2 w-75 phn-con">Call us now and make your booking</p>
                             <p class="w-100 phn-no">+91 9442833903 & +91 8248935180 </p>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 d-md-none">
                     <div class="mt-4 abt-content">
-                        <p>Our cab service offers reliable, punctual, and affordable transportation with professional
-                            drivers. Whether for airport transfers, city commutes, or special events, we ensure a
-                            comfortable and safe journey. With easy booking and 24/7 availability, we provide a
-                            hassle-free travel experience tailored to your needs.</p>
+                        <p>Our cab service offers a comfortable and safe journey with professional drivers, available 24/7
+                            for all your needs. Whether you need a ride for airport transfers, city commutes, or special
+                            events, our diverse fleet has you covered.</p>
                     </div>
                     <div class="mt-4">
                         <div class="d-flex flex-row">
                             <img src="./img/phone.png" width="50px" height="50px" class="mr-3" />
                             <p class="mr-2 w-75 phn-con">Call us now and make your booking</p>
-                            <p class="w-100 phn-no">+91 9442833903 & +91 8248935180 
- </p>
+                            <p class="w-100 phn-no">+91 9442833903 & +91 8248935180
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container pt-5 pb-5 card abt-header" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);border-radius: 15px;">
+        <div class="row">
+            <div class="col-12">
+            <h1 style="text-align: center;">Our vehicles</h1>
+            <ul>
+                <li>4-Seater Cabs: Perfect for individuals, couples, or small families.</li>
+                <li>Innova Cars: A comfortable and spacious option for groups of up to 7 or 8 passengers.</li>
+                <li>14-Seater, 16-Seater, and 18-Seater Tempos: Our tempos are equipped with powerful AC
+                    (air conditioning) to ensure a cool and pleasant journey, even on the hottest days.</li>
+            </ul>
+            <br>
+            <p style="text-align: center;">With easy booking and punctual service, we make sure your travel experience is always hassle-
+                free.</p>
+                </div>
         </div>
     </div>
 
@@ -392,38 +408,70 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <img src="./img/car1.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" />
-                    <h2 class="mb-3">Hyundai i20</h2>
-                    <p>Base rate - &#8377;1000</p>
-                    <p>Per km - &#8377;12</p>
-                    <p>Passengers - 4</p>
+                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3">Tempo-18 seat</h2>
+                    <p>Base rate - &#8377;4500</p>
+                    <p>Per km - &#8377;18</p>
+                    <p>Passengers - 18</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <img src="./img/car2.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo2.png " class="car-logo mt-3 mb-3" />
+                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3">URBANIA-16 seat</h2>
+                    <p>Base rate - &#8377;8000</p>
+                    <p>Per km - &#8377;25</p>
+                    <p>Passengers - 16</p>
+                    <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="car-container text-center car-btn">
+                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3">Tempo-14 seat</h2>
+                    <p>Base rate - &#8377;3800</p>
+                    <p>Per km - &#8377;17</p>
+                    <p>Passengers - 14</p>
+                    <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="car-container text-center car-btn">
+                    <!-- <img src="./img/car2.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo2.png " class="car-logo mt-3 mb-3" /> -->
                     <h2 class="mb-3">Suzuki Swift</h2>
-                    <p>Base rate - &#8377;1200</p>
-                    <p>Per km - &#8377;13</p>
+                    <p>Base rate - &#8377;1500</p>
+                    <p>Per km - &#8377;11</p>
                     <p>Passengers - 4</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <img src="./img/car3.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo3.png " class="car-logo mt-3 mb-3" />
+                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
                     <h2 class="mb-3">Toyota Innova</h2>
-                    <p>Base rate - &#8377;1500</p>
-                    <p>Per km - &#8377;15</p>
+                    <p>Base rate - &#8377;2500</p>
+                    <p>Per km - &#8377;14</p>
                     <p>Passengers - 7</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
-
+            <div class="col-12 col-md-4">
+                <div class="car-container text-center car-btn">
+                    <!-- <img src="./img/car3.png" class="car-img img-fluid" />
+                    <img src="./img/carlogo3.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3">Innova Crysta</h2>
+                    <p>Base rate - &#8377;3500</p>
+                    <p>Per km - &#8377;16</p>
+                    <p>Passengers - 7</p>
+                    <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -490,7 +538,7 @@
 
 
     <!-- Footer section -->
-    <?php include('./include/footer.php');?>
+    <?php include('./include/footer.php'); ?>
     <!-- End footer section -->
 
 
