@@ -158,7 +158,7 @@
             </div>
             <div class="col-12 col-md-6 about-driver d-none d-md-block mb-5 my-5">
                 <img src="./img/aboutdriver.png" width="430px" height="415px" class="position-absolute img-fluid" />
-                <img src="./img/trust.png" class="position-relative img-fluid" width="200px" height="200px" />
+                <img src=".\img\experience.png" class="position-relative img-fluid" width="170px" height="170px" />
             </div>
         </div>
     </div>
