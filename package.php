@@ -17,7 +17,7 @@
 
 
     <title>Garuda Holidays Travels
-</title>
+    </title>
 </head>
 
 <body>
@@ -48,26 +48,26 @@
                         <!-- Left section (Phone & Email) -->
                         <div class="d-flex flex-row ">
                             <div>
-                            <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
-                            <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
-                        </div>&nbsp;&nbsp;&nbsp;
+                                <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
+                                <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
+                            </div>&nbsp;&nbsp;&nbsp;
                             <div>
-                                <p><i class="fa-solid fa-envelope"></i> garudaholidaystravels@gmail.com 
-</p>
+                                <p><i class="fa-solid fa-envelope"></i> garudaholidaystravels@gmail.com
+                                </p>
                             </div>
                         </div>
-                
+
                         <!-- Center section (Logo) -->
                         <div class="d-flex flex-grow-1 justify-content-center mr-5">
                             <img src="./img/logo.png" alt="logo" class="img-fluid" style="max-width: 150px;" />
                         </div>
-                
+
                         <!-- Right section (Login) -->
                         <div class="mr-5">
                             <p><i class="fa-solid fa-user"></i> <a href="login.php" style="color: white; text-decoration:none;">Login</a></p>
                         </div>
                     </div>
-                </div><br/> 
+                </div><br />
                 <nav class="navbar navbar-expand-lg navbar-custom m-auto">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./package.php">Packages</a>
                             </li>
-                             <li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" href="./services.php">Services</a>
                             </li>
                             <!-- <li class="nav-item dropdown">
@@ -129,7 +129,10 @@
             </div>
         </div>
     </div>
-
+    <?php include('./db.php');
+    $sql = "SELECT * FROM packages";
+    $res = $conn->query($sql);
+    ?>
     <div class="container pt-5 pb-5">
         <div class="row">
             <div class="col-12 text-center mb-4 abt-header">
@@ -137,31 +140,16 @@
                 <p>Check out our Benefits</p>
                 <h1>What we’re Offering</h1>
             </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/offer1.png" class="img-fluid" />
-                    <h2>Tour Packages</h2>
-                    <p>A tour package bundles together travel, accommodation, and activities for a single, convenient price.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book cab Now</a></button>
+            <?php while ($row = $res->fetch_assoc()) { ?>
+                <div class="col-12 col-md-4 mt-3">
+                    <div class="offer-container text-center">
+                        <img src="./img/packages/<?php echo $row['photo']; ?>" class="img-fluid" />
+                        <h2><?php echo $row['title']; ?></h2>
+                        <p><?php echo $row['content']; ?></p>
+                        <button><a href="book.php" style="color: black;text-decoration:none;">Book cab Now</a></button>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/offer2.png" class="img-fluid"/>
-                    <h2>Round Trip</h2>
-                    <p>Daily commute, a rhythmic journey between work and home, a familiar cycle.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book cab Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/offer3.png" class="img-fluid" />
-                    <h2>Outstation Trip</h2>
-                    <p>The excitement of travel with the discovery of new destinations, offering a change of scenery and
-                        pace.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book cab Now</a></button>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
@@ -176,177 +164,39 @@
             <div class="col-12 text-left mb-4">
                 <h2>Holiday Tour</h2>
             </div>
+            <?php $sql1 = "SELECT * FROM holiday";
+            $res1 = $conn->query($sql1);
+            while($row1 = $res1->fetch_assoc()){
+            ?>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
-                    <img src="./img/packages/Kodaikkanal.jpg" class="img-fluid" />
-                    <h2>Kodaikkanal</h2>
-                    <p>A serene hill station known for its lush greenery, waterfalls, and pleasant climate.
-                        Ideal for trekking, boating, and enjoying nature’s tranquility.</p>
+                    <img src="./img/packages/<?php echo $row1['photo']; ?>" class="img-fluid" />
+                    <h2><?php echo $row1['title']; ?></h2>
+                    <p><?php echo $row1['content']; ?></p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Munnar.jpg" class="img-fluid" />
-                    <h2>Munnar</h2>
-                    <p>A famous hill resort in Kerala, renowned for its tea plantations and misty hills.
-Perfect for nature lovers and adventure seekers alike.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Vagamon.jpg" class="img-fluid"/>
-                    <h2>Vagamon</h2>
-                    <p>A quiet hill station with sprawling meadows, pine forests, and rolling hills.
-Great for paragliding, trekking, and peaceful getaways.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Thekkady.jpg" class="img-fluid" />
-                    <h2>Thekkady</h2>
-                    <p>Home to the Periyar Wildlife Sanctuary, famous for elephants and tiger safaris.
-Offers boating, nature walks, and spice plantation tours.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Valparai.jpg" class="img-fluid"/>
-                    <h2>Valparai</h2>
-                    <p>A beautiful hill town with tea estates, wildlife sanctuaries, and waterfalls.
-Known for its cool climate and scenic views.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Ooty.jpg" class="img-fluid"/>
-                    <h2>Ooty</h2>
-                    <p>The “Queen of Hill Stations,” famous for botanical gardens, lakes, and scenic toy trains.
-A popular destination for honeymooners and families.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/mysore.jpg" class="img-fluid" />
-                    <h2>Mysore</h2>
-                    <p>Mysore, the City of Palaces, is famed for its majestic architecture, rich traditions, and vibrant festivals. From Mysore Palace to Brindavan Gardens and Chamundi Hills, the city offers heritage, charm, and scenic beauty. </p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/bangalore.jpg" class="img-fluid" />
-                    <h2>Bangalore</h2>
-                    <p>Bangalore, the Garden City of India, is famed for its modern skyline, lush parks, and vibrant culture. From Cubbon Park to Lalbagh, Vidhana Soudha, and bustling MG Road, the city blends heritage, innovation, and cosmopolitan charm.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/coorg.jpg" class="img-fluid" />
-                    <h2>Coorg</h2>
-                    <p>Coorg, often called the Scotland of India, charms visitors with its rolling hills, aromatic coffee estates, and tranquil beauty. With its ancient temples, vibrant markets, and enchanting waterfalls, it promises both peace and adventure.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/goa.jpg" class="img-fluid" />
-                    <h2>Goa</h2>
-                    <p>Goa, India’s coastal paradise, is celebrated for its sun-kissed beaches, vibrant nightlife, and colonial charm. From serene churches to bustling markets and breathtaking waterfalls, it offers the perfect mix of relaxation and adventure.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
+            <?php } ?>
         </div>
         <br><br><br>
         <div class="col-12 text-left mb-4">
-                <h2>Religious and spiritual tour packages</h2>
+            <h2>Religious and spiritual tour packages</h2>
         </div>
         <br>
         <div class="row">
+            <?php $sql2 = "SELECT * FROM spiritual";
+            $res2 = $conn->query($sql2);
+            while($row2 = $res2->fetch_assoc()){
+            ?>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
-                    <img src="./img/packages/Thirupathi.jpg" class="img-fluid"/>
-                    <h2>Thirupathi</h2>
-                    <p>A sacred pilgrimage city, famous for the Tirumala Venkateswara Temple.
-Attracts millions of devotees every year from across India.</p>
+                    <img src="./img/packages/<?php echo $row2['photo']; ?>" class="img-fluid" />
+                    <h2><?php echo $row2['title']; ?></h2>
+                    <p><?php echo $row2['content']; ?></p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Rameswaram.jpg" class="img-fluid"/>
-                    <h2>Rameswaram</h2>
-                    <p>A spiritual town known for Ramanathaswamy Temple and pristine beaches.
-An important pilgrimage spot in Tamil Nadu with rich cultural heritage.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Sheeradi.jpg" class="img-fluid"/>
-                    <h2>Sheeradi</h2>
-                    <p>A quaint town known for its beautiful temples and serene surroundings.
-Ideal for those seeking peace and spiritual solace.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Manthralayam.jpg" class="img-fluid"/>
-                    <h2>Manthralayam</h2>
-                    <p>A holy town famous for the Mantralaya Sri Raghavendra Swamy temple.
-A center for devotees seeking blessings and spiritual guidance.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Srisailam.jpg" class="img-fluid"/>
-                    <h2>Srisailam</h2>
-                    <p>Home to one of the twelve Jyotirlinga shrines dedicated to Lord Shiva.
-Nestled amidst scenic hills and rich forest, perfect for spiritual visits.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/Sabarimala.jpg" class="img-fluid"/>
-                    <h2>Sabarimala</h2>
-                    <p>A renowned pilgrimage center dedicated to Lord Ayyappa, attracting millions annually.
-Set in the Western Ghats, it’s known for its challenging trek and sacred rituals.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/dharmasthala.jpg" class="img-fluid"/>
-                    <h2>Dharmasthala</h2>
-                    <p>Dharmasthala, often hailed as the Land of Righteousness, captivates visitors with its spiritual aura, scenic surroundings, and cultural richness. With its revered temples, and serene riverside, it promises both devotion and tranquility.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/udupi.jpg" class="img-fluid"/>
-                    <h2>Udupi</h2>
-                    <p>Udupi, famed as the Temple Town, enchants visitors with its spiritual charm, coastal beauty, and culinary legacy. With its ancient Krishna temple, golden beaches, and vibrant traditions, it offers a perfect blend of devotion and serenity.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mt-3">
-                <div class="offer-container text-center">
-                    <img src="./img/packages/murdeshwara.jpg" class="img-fluid"/>
-                    <h2>Murdeshwara</h2>
-                    <p>Murdeshwar, home to the world’s second-tallest Shiva statue, captivates with its divine aura and coastal beauty. With its grand temple, serene beaches, and breathtaking views, it offers both spirituality and tranquility.</p>
-                    <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
@@ -354,7 +204,7 @@ Set in the Western Ghats, it’s known for its challenging trek and sacred ritua
 
     <!-- Footer -->
 
-    <?php include('./include/footer.php');?>
+    <?php include('./include/footer.php'); ?>
 
     <!-- End Footer -->
 

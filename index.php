@@ -14,7 +14,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <title>Garuda holidays travels
     </title>
@@ -40,7 +41,7 @@
                     </div>
                     <div>
                         <div class="text-center">
-                            <img src="./img/logo.png" alt="logo" />
+                            <img src="./img/logo1.png" alt="logo" />
                         </div>
                     </div>
                 </div>
@@ -288,10 +289,10 @@
             <div class="col-12">
             <h1 style="text-align: center;">Our vehicles</h1>
             <ul>
-                <li>4-Seater Cabs: Perfect for individuals, couples, or small families.</li>
-                <li>Innova Cars: A comfortable and spacious option for groups of up to 7 or 8 passengers.</li>
                 <li>14-Seater, 16-Seater, and 18-Seater Tempos: Our tempos are equipped with powerful AC
                     (air conditioning) to ensure a cool and pleasant journey, even on the hottest days.</li>
+                <li>Innova Cars: A comfortable and spacious option for groups of up to 7 or 8 passengers.</li>
+                <li>4-Seater Cabs: Perfect for individuals, couples, or small families.</li>
             </ul>
             <br>
             <p style="text-align: center;">With easy booking and punctual service, we make sure your travel experience is always hassle-
@@ -405,10 +406,28 @@
                 <button class="btn mr-2 ml-2">sedan Cars</button>
                 <button class="btn mr-2 ml-2">suv Cars</button>
             </div>
+            <?php 
+            include('./db.php'); 
+            $sql = "SELECT * FROM traiff";
+            $res = $conn->query($sql);
+            while($row = $res->fetch_assoc()){
+            ?>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
                     <!-- <img src="./img/car1.png" class="car-img img-fluid" />
                     <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                    <h2 class="mb-3"><?php echo $row['vehicle_name']; ?></h2>
+                    <p>Base rate - &#8377;<?php echo $row['base_rate']; ?></p>
+                    <p>Per km - &#8377;<?php echo $row['per_km_rate']; ?></p>
+                    <p>Seats - <?php echo $row['seats']; ?></p>
+                    <p>Passengers - <?php echo $row['passengers']; ?></p>
+                    <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
+                </div>
+            </div>
+            <?php } ?>
+            <!-- <div class="col-12 col-md-4">
+                <div class="car-container text-center car-btn">
+                   
                     <h2 class="mb-3">Tempo-18 seat</h2>
                     <p>Base rate - &#8377;4500</p>
                     <p>Per km - &#8377;18</p>
@@ -418,8 +437,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                   
                     <h2 class="mb-3">URBANIA-16 seat</h2>
                     <p>Base rate - &#8377;8000</p>
                     <p>Per km - &#8377;25</p>
@@ -429,8 +447,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                   
                     <h2 class="mb-3">Tempo-14 seat</h2>
                     <p>Base rate - &#8377;3800</p>
                     <p>Per km - &#8377;17</p>
@@ -440,8 +457,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <!-- <img src="./img/car2.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo2.png " class="car-logo mt-3 mb-3" /> -->
+                  
                     <h2 class="mb-3">Suzuki Swift</h2>
                     <p>Base rate - &#8377;1500</p>
                     <p>Per km - &#8377;11</p>
@@ -451,8 +467,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <!-- <img src="./img/car1.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
+                    
                     <h2 class="mb-3">Toyota Innova</h2>
                     <p>Base rate - &#8377;2500</p>
                     <p>Per km - &#8377;14</p>
@@ -462,15 +477,14 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <!-- <img src="./img/car3.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo3.png " class="car-logo mt-3 mb-3" /> -->
+                   
                     <h2 class="mb-3">Innova Crysta</h2>
                     <p>Base rate - &#8377;3500</p>
                     <p>Per km - &#8377;16</p>
                     <p>Passengers - 7</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -500,39 +514,112 @@
 
     <!-- Testimonial section -->
     <div class="container-fluid bg-container7 py-1 pt-5 pb-5">
-        <div class="row">
-            <div class="col-12 text-center mb-4 abt-header">
-                <h2>.</h2>
-                <p>Testimonials</p>
-                <h1 class="text-white">Kind Words from Clients</h1>
-            </div>
-            <div class="col-12">
-                <!-- Testimonial Card -->
-                <div class="testimonial-card">
-                    <div class="quote-border"></div>
-                    <div class="d-flex flex-row">
-                        <img src="./img/girl.jpg" alt="Profile" class="profile-image mr-5">
-                        <div>
-                            <div class="name">Pearl</div>
-                            <div class="role">Customer</div>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">
-                        Lorem ipsum dolor sit amet consectetur. Interdum senectus a cras tempor leo massa amet
-                        dignissim.
-                    </p>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="quote-border-bottom"></div>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-12 text-center mb-4 abt-header">
+      <h2>.</h2>
+      <p>Testimonials</p>
+      <h1 class="text-white">Kind Words from Clients</h1>
     </div>
+
+    <!-- Swiper Container -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Item 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card text-center mx-auto" style="max-width: 600px;">
+            <div class="quote-border"></div>
+            <div class="d-flex flex-row justify-content-center mb-3">
+              <img src="./img/girl.jpg" alt="Profile" class="profile-image me-3">
+              <div>
+                <div class="name">Janani</div>
+                <div class="role">Customer</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Had a great cab experience – clean car, polite driver, and a smooth, beautiful journey. Highly recommend!
+            </p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="quote-border-bottom"></div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card text-center mx-auto" style="max-width: 600px;">
+            <div class="quote-border"></div>
+            <div class="d-flex flex-row justify-content-center mb-3">
+              <img src="./img/girl2.jpg" alt="Profile" class="profile-image me-3">
+              <div>
+                <div class="name">Pearl</div>
+                <div class="role">Customer</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Wonderful cab ride – comfortable, safe, and pleasant all the way.
+            </p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="quote-border-bottom"></div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card text-center mx-auto" style="max-width: 600px;">
+            <div class="quote-border"></div>
+            <div class="d-flex flex-row justify-content-center mb-3">
+              <img src="./img/boy1.jpg" alt="Profile" class="profile-image me-3">
+              <div>
+                <div class="name">Pandi</div>
+                <div class="role">Customer</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+             Cab was on time, driver was helpful, and the ride was smooth.
+            </p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="quote-border-bottom"></div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card text-center mx-auto" style="max-width: 600px;">
+            <div class="quote-border"></div>
+            <div class="d-flex flex-row justify-content-center mb-3">
+              <img src="./img/boy2.jpg" alt="Profile" class="profile-image me-3">
+              <div>
+                <div class="name">Ram</div>
+                <div class="role">Customer</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Very comfortable ride, driver was friendly and professional. Great service!
+            </p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="quote-border-bottom"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="swiper-button-next" style="color:#FFC107"></div>
+      <div class="swiper-button-prev" style="color:#FFC107"></div>
+    </div>
+  </div>
+</div>
     <!-- End Testimonial section -->
 
 
@@ -554,6 +641,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+        
+    <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+    },
+  });
+</script>
 </body>
 
 </html>

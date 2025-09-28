@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 
-    <title>Garuda Holidays Travels
+    <title>Thirumalai Garuda Holidays Travels
 </title>
 </head>
 
@@ -137,21 +137,28 @@
                 <button class="btn mr-2 ml-2">sedan Cars</button>
                 <button class="btn mr-2 ml-2">suv Cars</button>
             </div>
+            <?php 
+            include('./db.php'); 
+            $sql = "SELECT * FROM traiff";
+            $res = $conn->query($sql);
+            while($row = $res->fetch_assoc()){
+            ?>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
                     <!-- <img src="./img/car1.png" class="car-img img-fluid" />
                     <img src="./img/carlogo1.png " class="car-logo mt-3 mb-3" /> -->
-                    <h2 class="mb-3">Tempo - 18 Seat</h2>
-                    <p>Base rate - &#8377;4500</p>
-                    <p>Per km - &#8377;18</p>
-                    <p>Passengers - 18</p>
+                    <h2 class="mb-3"><?php echo $row['vehicle_name']; ?></h2>
+                    <p>Base rate - &#8377;<?php echo $row['base_rate']; ?></p>
+                    <p>Per km - &#8377;<?php echo $row['per_km_rate']; ?></p>
+                    <p>Seats - <?php echo $row['seats']; ?></p>
+                    <p>Passengers - <?php echo $row['passengers']; ?></p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <?php } ?>
+            <!-- <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <!-- <img src="./img/car2.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo2.png " class="car-logo mt-3 mb-3" /> -->
+                   
                     <h2 class="mb-3">URBANIA - 16 Seat</h2>
                     <p>Base rate - &#8377;8000</p>
                     <p>Per km - &#8377;25</p>
@@ -161,8 +168,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div class="car-container text-center car-btn">
-                    <!-- <img src="./img/car3.png" class="car-img img-fluid" />
-                    <img src="./img/carlogo3.png " class="car-logo mt-3 mb-3" /> -->
+                
                     <h2 class="mb-3">Tempo - 14 Seat</h2>
                     <p>Base rate - &#8377;3800</p>
                     <p>Per km - &#8377;17</p>
@@ -196,7 +202,7 @@
                     <p>Passengers - 7</p>
                     <button class="btn"><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>

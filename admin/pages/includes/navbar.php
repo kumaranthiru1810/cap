@@ -4,7 +4,7 @@
          <div class="sidebar-brand-icon rotate-n-15">
              <!-- <i class="fas fa-laugh-wink"></i> -->
          </div>
-         <div class="sidebar-brand-text mx-3">RELAX CABS</div>
+         <div class="sidebar-brand-text mx-3">Thirumalaigaruda<br>travels</div>
      </a>
 
      <hr class="sidebar-divider my-0">
@@ -64,6 +64,22 @@
          </div>
      </li>
 
+      <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manage-traiff"
+             aria-expanded="true" aria-controls="manage-traiff">
+             <i class="fas fa-fw fa-user"></i>
+             <span>Traiff</span>
+         </a>
+         <div id="manage-traiff" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">Traiff</h6>
+                 <a class="collapse-item" href="./add_traiff.php">Add</a>
+                 <a class="collapse-item" href="./list_traiff.php">List</a>
+             </div>
+         </div>
+     </li>
+
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manage-packages"
              aria-expanded="true" aria-controls="manage-packages">
@@ -75,7 +91,39 @@
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">Packages</h6>
                  <a class="collapse-item" href="./add_packages.php">Add</a>
-                 <a class="collapse-item" href="./list_packages.php">List</a>
+                 <a class="collapse-item" href="./list_packages.php">Common</a>
+                 <a class="collapse-item" href="./list_holiday.php">Holiday Tour</a>
+                 <a class="collapse-item" href="./list_spiritual.php">spiritual tour</a>
+             </div>
+         </div>
+     </li>
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manage-services"
+             aria-expanded="true" aria-controls="manage-services">
+             <i class="fas fa-fw fa-user"></i>
+             <span>Services</span>
+         </a>
+         <div id="manage-services" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">Services</h6>
+                 <a class="collapse-item" href="./add_services.php">Add</a>
+                 <a class="collapse-item" href="./list_services.php">List</a>
+             </div>
+         </div>
+     </li>
+     <li class="nav-item">
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manage-gallery"
+             aria-expanded="true" aria-controls="manage-gallery">
+             <i class="fas fa-fw fa-user"></i>
+             <span>Gallery</span>
+         </a>
+         <div id="manage-gallery" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">Gallery</h6>
+                 <a class="collapse-item" href="./add_gallery.php">Add</a>
+                 <a class="collapse-item" href="./list_gallery.php">List</a>
              </div>
          </div>
      </li>
