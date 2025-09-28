@@ -1,3 +1,7 @@
+<?php
+    include("db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +22,19 @@
 
     <title>garudaholidaystravels
 </title>
+
+<style>
+    .error {
+      color: red;
+      font-size: 12px;
+      display: none;
+      background-color: white;
+    }
+    .input-group-text{
+        background-color:#ECECEC;
+    }
+</style>
+
 </head>
 
 <body>
@@ -139,50 +156,54 @@
                     reference number and driver details.</p>
             </div>
             <div class="col-12 cab-book-container  bg-container14">
-                <form class="booking-form-container">
+                <form class="booking-form-container" onsubmit="return validateForm()" method="POST">
                     <h3>Select Information</h3>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Your Name">
+                                <input type="text" name="uname" class="form-control" placeholder="Your Name" id="username" title="Username must contain only letters." required>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                                 </div>
                             </div>
+                            <span id="usernameError" class="error">Enter Valid Username</span>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Email Address">
+                                <input type="email" name="uemail" class="form-control" placeholder="Email Address" id="email" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
                                 </div>
                             </div>
+                            <span id="emailError" class="error">Enter a valid email address.</span>
                         </div>
                     </div>
     
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="No of Passengers">
+                                <input type="text" name="upassenger" class="form-control" placeholder="No of Passengers" id="passengers" title="Passengers must be numbers only." required>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-users"></i></span>
                                 </div>
                             </div>
+                            <span id="passengersError" class="error">Enter Passengers</span>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Phone no">
+                                <input type="text" name="uphone" class="form-control" placeholder="Phone no" id="phone" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-phone-volume"></i></span>
                                 </div>
                             </div>
+                            <span id="phoneError" class="error">Enter a Valid Phone Number</span>
                         </div>
                     </div>
     
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Pick Up Address">
+                                <input type="text" name="upickaddress" class="form-control" placeholder="Pick Up Address"  required>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-map-location-dot"></i></span>
                                 </div>
@@ -190,7 +211,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Drop Address">
+                                <input type="text" name="udropaddress" class="form-control" placeholder="Drop Address" required>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
                                 </div>
@@ -201,19 +222,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Select Date">
-                                <div class="input-group-append">
+                                <input type="text" name="udate" class="form-control" placeholder="Enter Date with dd/mm/yyyy or dd.mm.yyyy" id="date" required>
+                                <div class="input-group-append" id="calendar-icon">
                                     <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
                                 </div>
                             </div>
+                            <span id="dateError" class="error">Enter a Valid Date</span>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Select Time">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fa-regular fa-clock"></i></span>
-                                </div>
+                                    <input type="text" name="utime" class="form-control" placeholder="Enter Time with AM/PM" id="time" title="Enter Time With AM / PM Format">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa-regular fa-clock"></i></span>
+                                    </div>
                             </div>
+                            <span id="timeError" class="error">Enter Time </span>
                         </div>
                     </div>
     
@@ -222,19 +245,19 @@
                             <div class="form-group">
                                 <h5>Car Type</h5>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car1" value="any">
+                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car1" value="any" required>
                                     <label class="form-check-label" for="car1">Any Type</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car2" value="hatchback">
+                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car2" value="hatchback" required>
                                     <label class="form-check-label" for="car2">Hatchback</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car3" value="sedan">
+                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car3" value="sedan" required>
                                     <label class="form-check-label" for="car3">Sedan</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car4" value="suv">
+                                    <input class="form-check-input radio-container" type="radio" name="carType" id="car4" value="suv" required>
                                     <label class="form-check-label" for="car4">SUV</label>
                                 </div>
                             </div>
@@ -243,13 +266,23 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Select Car Model">
+                                    <select class="form-control" name="carmodel" placeholder="Select Car Model" id="carmodel" style=" height:55px;border:0; border-top-left-radius:50px; border-bottom-left-radius:50px; background-color:#ECECEC;">
+                                        <option value="" disabled selected hidden>Select Car Model</option>
+                                        <?php
+                                            $res = mysqli_query($conn , "SELECT * FROM cabs ");
+                                            while($row = mysqli_fetch_assoc($res)){
+                                                if($row['status'] == "available"){
+                                        ?>
+                                        <option><?php echo $row['car_name']; ?></option>
+                                        <?php } } ?>
+               
+                                    </select>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa-solid fa-car"></i></span>
                                     </div>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Service Type">
+                                    <input type="text" class="form-control" name="serviceType" placeholder="Service Type" id="servicetype">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa-solid fa-gear"></i></span>
                                     </div>
@@ -259,15 +292,37 @@
                     </div>
     
                     <div class="form-group form-check-inline">
-                        <input type="checkbox" class="form-check-input radio-container" id="termsCheck">
+                        <input type="checkbox" class="form-check-input radio-container" id="termsCheck" required>
                         <label class="form-check-label" for="termsCheck">By Clicking this you agree to our Terms & Conditions</label>
                     </div><br/>
                     
-                    <button type="submit" class="btn cab-book-btn">Book Cab Now</button>
+                    <button type="submit" class="btn cab-book-btn" name="bookbtn">Book Cab Now</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <?php
+        if(isset($_POST['bookbtn'])){
+            $uname =mysqli_real_escape_string($conn , $_POST['uname']);
+            $uemail = mysqli_real_escape_string($conn , $_POST['uemail']);
+            $upassenger = mysqli_real_escape_string($conn , $_POST['upassenger']);
+            $uphone = mysqli_real_escape_string($conn , $_POST['uphone']);
+            $upickaddress = mysqli_real_escape_string($conn , $_POST['upickaddress']);
+            $udropaddress = mysqli_real_escape_string($conn , $_POST['udropaddress']);
+            $udate = mysqli_real_escape_string($conn , $_POST['udate']);
+            $utime = mysqli_real_escape_string($conn , $_POST['utime']);
+            $cartype = mysqli_real_escape_string($conn , $_POST['carType']);
+            $carmodel = mysqli_real_escape_string($conn , $_POST['carmodel']);
+            $service = mysqli_real_escape_string($conn , $_POST['serviceType']);
+            $status = 'registered';
+
+            mysqli_query($conn , "INSERT INTO users(username,useremail,passengers,phone,pickupaddress,dropaddress,date,time,cartype,carmodel,servicetype,status) VALUES ('$uname','$uemail','$upassenger','$uphone','$upickaddress','$udropaddress','$udate','$utime','$cartype','$carmodel','$service','$status')");
+            echo "<script>alert('Booking successfully');
+                    window.location.href = 'index.php';
+            </script>";
+        }
+    ?>
     
 
 
@@ -280,6 +335,84 @@
 
     <!-- End Footer -->
 
+
+
+
+    <script>
+    function validateForm() {
+      let valid = true;
+
+      // Username (only letters)
+      let username = document.getElementById("username").value.trim();
+      let usernameError = document.getElementById("usernameError");
+      let usernameRegex = /^[A-Za-z]+$/;
+      if (!usernameRegex.test(username)) {
+        usernameError.style.display = "inline";
+        valid = false;
+      } else {
+        usernameError.style.display = "none";
+      }
+
+      // Email
+      let email = document.getElementById("email").value.trim();
+      let emailError = document.getElementById("emailError");
+      let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@0-9]+$/;
+      if (!emailRegex.test(email)) {
+        emailError.style.display = "inline";
+        valid = false;
+      } else {
+        emailError.style.display = "none";
+      }
+
+      // Passengers (numbers only)
+      let passengers = document.getElementById("passengers").value.trim();
+      let passengersError = document.getElementById("passengersError");
+      let passengersRegex = /^[0-9]+$/;
+      if (!passengersRegex.test(passengers)) {
+        passengersError.style.display = "inline";
+        valid = false;
+      } else {
+        passengersError.style.display = "none";
+      }
+
+      // Phone (10–15 digits only)
+      let phone = document.getElementById("phone").value.trim();
+      let phoneError = document.getElementById("phoneError");
+      let phoneRegex = /^[0-9]{10,15}$/;
+      if (!phoneRegex.test(phone)) {
+        phoneError.style.display = "inline";
+        valid = false;
+      } else {
+        phoneError.style.display = "none";
+      }
+
+      // Date (dd/mm/yyyy or dd.mm.yyyy)
+      let date = document.getElementById("date").value.trim();
+      let dateError = document.getElementById("dateError");
+      let dateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/.](0?[1-9]|1[0-2])[\/.](\d{4})$/;
+      if (!dateRegex.test(date)) {
+        dateError.style.display = "inline";
+        valid = false;
+      } else {
+        dateError.style.display = "none";
+      }
+
+      // Time (hh:mm AM/PM or hh.mm AM/PM)
+      let time = document.getElementById("time").value.trim();
+      let timeError = document.getElementById("timeError");
+      let timeRegex = /^(0?[1-9]|1[0-2])[:.][0-5][0-9]\s?(AM|PM)$/i;
+      if (!timeRegex.test(time)) {
+        timeError.style.display = "inline";
+        valid = false;
+      } else {
+        timeError.style.display = "none";
+      }
+
+
+
+      return valid; // ✅ true = submit, false = block
+    }
+  </script>
 
 
 
