@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 
-    <title>garudaholidaystravels
+    <title>thirumalaigarudaholidaystravels
 </title>
 </head>
 
@@ -129,28 +129,25 @@
             </div>
         </div>
     </div>
+    <?php include('./db.php'); ?>
+    <?php 
+    $sql = "SELECT * FROM gallery";
+    $res = $conn->query($sql);
+?>
 
     <div class="container mt-5 pb-5 pt-5">
         <div class="row">
-            <div class="d-md-flex flex-row justify-content-center">
+            <?php while($row = $res->fetch_assoc()){ ?>
+            <!-- <div class="d-md-flex justify-content-center"> -->
                 <div class="col-12 col-md-4 mt-3">
                     <div class="gallery-container">
-                        <img src="./img/gallery/gallery1.png" class="img-fluid" />
+                        <img src="./img/gallery/<?php echo $row['photo']; ?>" class="img-fluid" />
                     </div>
                 </div>
-                <div class="col-12 col-md-4 mt-3">
-                    <div class="gallery-container">
-                        <img src="./img/gallery/gallery2.png" class="img-fluid" />
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mt-3">
-                    <div class="gallery-container">
-                        <img src="./img/gallery/gallery3.png" class="img-fluid" />
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="d-md-flex flex-row">
                 <div class="col-12 col-md-4 mt-3">
                     <div class="gallery-container">
@@ -186,8 +183,7 @@
                     <img src="./img/gallery/gallery9.png"  class="img-fluid"/>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
     </div>
 
     <!-- Footer -->

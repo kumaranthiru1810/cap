@@ -168,18 +168,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         echo json_encode($response);
     } else if ($_POST['action'] == 'add-packages') {
-        $package_name = $_POST['name'];
-        $description = $_POST['description'];
-        $duration = $_POST['duration'];
-        $price = $_POST['price'];
-        $places = $_POST['places'];
-        $status = $_POST['status'];
-        $targetFile = '../uploads/gallery/tour_place.jpg';
+        $insert = $_POST['category'];
+        $db;
+        switch ($insert) {
+        case 'holiday':
+            $db = "holiday";
+            break;
+        case 'spiritual':
+            $db = "spiritual";
+            break;
+        default:
+            $db = "packages";
+            break;
+        }
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $targetFile = '../../img/packages/bangalore.jpg';
 
-        if (isset($_FILES['image']['tmp_name']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
-            $target = '../uploads/gallery/';
-            $file = $_FILES['image']['tmp_name'];
-            $targetFile = $target . basename($_FILES['image']['name']);
+        if (isset($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $target = '../../img/packages/';
+            $file = $_FILES['photo']['tmp_name'];
+            $targetFile = $target . basename($_FILES['photo']['name']);
 
             if (!move_uploaded_file($file, $targetFile)) {
                 $response['failed'] = 'Fail...!';
@@ -188,53 +197,58 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
         }
 
-        $result = mysqli_query($connect, "insert into packages (name,description,duration,price,place,image,status) values('$package_name','$description','$duration','$price','$places','$targetFile','$status')");
+        $result = mysqli_query($connect, "insert into $db (photo,title,content) values('$targetFile','$title','$content')");
 
         if ($result) {
-            $response['success'] = "Package Added Successfully";
+            $response['success'] = "Packages Added Successfully";
         } else {
-            $response['failed'] = "Package insertin Failed...!";
+            $response['failed'] = "Packages insertin Failed...!";
         }
 
         echo json_encode($response);
-    } else if ($_POST['action'] == 'edit-package') {
-        $id = $_POST['id'];
-        $package_name = $_POST['name'];
-        $description = $_POST['description'];
-        $duration = $_POST['duration'];
-        $price = $_POST['price'];
-        $places = $_POST['places'];
-        $status = $_POST['status'];
-        $targetFile = $_POST['existing_image'];
+    } else if ($_POST['action'] == 'edit-packages') {
+    $db = $_POST['db'];   // ✅ fix: use POST not GET
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $targetFile = $_POST['existing_image'];
 
-        if (isset($_FILES['image']['tmp_name']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
-            $target = '../uploads/gallery/';
-            $file = $_FILES['image']['tmp_name'];
-            $targetFile = $target . basename($_FILES['image']['name']);
+    if (isset($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+        $target = '../../img/packages/';
+        $file = $_FILES['photo']['tmp_name'];
+        $targetFile = $target . basename($_FILES['photo']['name']);
 
-            if (!move_uploaded_file($file, $targetFile)) {
-                $response['failed'] = 'Fail...!';
-                echo json_encode($response);
-                exit;
-            }
+        if (!move_uploaded_file($file, $targetFile)) {
+            $response['failed'] = 'Fail...!';
+            echo json_encode($response);
+            exit;
         }
+    }
 
-        $result = mysqli_query($connect, "update packages set name = '$package_name',description='$description',duration='$duration',price='$price',place='$places',image='$targetFile',status='$status' where id='$id'");
+    $result = mysqli_query(
+        $connect,
+        "UPDATE `$db` SET photo='" . mysqli_real_escape_string($connect, $targetFile) . 
+        "', title='" . mysqli_real_escape_string($connect, $title) . 
+        "', content='" . mysqli_real_escape_string($connect, $content) . 
+        "' WHERE id='" . intval($id) . "'"
+    );
+
+    if ($result) {
+        $response['success'] = "Packages Edited Successfully";
+    } else {
+        $response['failed'] = "Failed to edit....";
+    }
+
+    echo json_encode($response);
+
+
+    } else if ($_POST['action'] == 'delete-packages') {
+        $id = $_POST['id'];
+
+        $result = mysqli_query($connect, "delete from package where id = '$id'");
 
         if ($result) {
-            $response['success'] = "Package Edited Successfully";
-        } else {
-            $response['failed'] = "Failed to edit....";
-        }
-
-        echo json_encode($response);
-    } else if ($_POST['action'] == 'delete-package') {
-        $id = $_POST['id'];
-
-        $result = mysqli_query($connect, "delete from packages where id = '$id'");
-
-        if ($result) {
-            $response['success'] = "Package Deleted Successfully";
+            $response['success'] = "Packages Deleted Successfully";
         } else {
             $response['failed'] = "Failed to delete....";
         }
@@ -271,6 +285,215 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         } else {
             $response['failed'] = "Failed to Update....";
         }
+        echo json_encode($response);
+    } else if ($_POST['action'] == 'add-services') {
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $targetFile = '../../img/services/tempo.jpg';
+
+        if (isset($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $target = '../../img/services/';
+            $file = $_FILES['photo']['tmp_name'];
+            $targetFile = $target . basename($_FILES['photo']['name']);
+
+            if (!move_uploaded_file($file, $targetFile)) {
+                $response['failed'] = 'Fail...!';
+                echo json_encode($response);
+                exit;
+            }
+        }
+
+        $result = mysqli_query($connect, "insert into services (photo,title,content) values('$targetFile','$title','$content')");
+
+        if ($result) {
+            $response['success'] = "Services added Successfully";
+        } else {
+            $response['failed'] = 'Fail...!';
+        }
+
+        echo json_encode($response);
+    } else if ($_POST['action'] == 'edit-services') {
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $targetFile = $_POST['existing_image'];
+
+        if (isset($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $target = '../../img/services/';
+            $file = $_FILES['photo']['tmp_name'];
+            $targetFile = $target . basename($_FILES['photo']['name']);
+
+            if (!move_uploaded_file($file, $targetFile)) {
+                $response['failed'] = 'Fail...!';
+                echo json_encode($response);
+                exit;
+            }
+        }
+
+        $result = mysqli_query($connect, "update services set photo='$targetFile',title='$title',content='$content' where id=$id");
+
+        if ($result) {
+            $response['success'] = "Services Edited Successfully";
+        } else {
+            $response['failed'] = 'Fail...!';
+        }
+
+        echo json_encode($response);
+    } else if ($_POST['action'] == 'delete-services') {
+        $id = $_POST['id'];
+
+        $result = mysqli_query($connect, "delete from services where id = '$id'");
+        if ($result) {
+            $response['success'] = 'Services deleted successfully';
+        } else {
+            $response['failed'] = "Services deletion Failed...!";
+        }
+
+        echo json_encode($response);
+    }
+    
+    // Gallery section
+
+    else if ($_POST['action'] == 'add-gallery') {
+
+        $targetFile = '../../img/gallery/gallery1.png';
+
+        if (isset($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $target = '../../img/gallery/';
+            $file = $_FILES['photo']['tmp_name'];
+            $targetFile = $target . basename($_FILES['photo']['name']);
+
+            if (!move_uploaded_file($file, $targetFile)) {
+                $response['failed'] = 'Fail...!';
+                echo json_encode($response);
+                exit;
+            }
+        }
+
+        $result = mysqli_query($connect, "insert into gallery (photo) values('$targetFile')");
+
+        if ($result) {
+            $response['success'] = "Photo added Successfully";
+        } else {
+            $response['failed'] = 'Fail...!';
+        }
+
+        echo json_encode($response);
+    } else if ($_POST['action'] == 'edit-gallery') {
+        $id = $_POST['id'];
+        $targetFile = $_POST['existing_image'];
+
+        if (isset($_FILES['photo']['tmp_name']) && is_uploaded_file($_FILES['photo']['tmp_name'])) {
+            $target = '../../img/gallery/';
+            $file = $_FILES['photo']['tmp_name'];
+            $targetFile = $target . basename($_FILES['photo']['name']);
+
+            if (!move_uploaded_file($file, $targetFile)) {
+                $response['failed'] = 'Fail...!';
+                echo json_encode($response);
+                exit;
+            }
+        }
+
+        $result = mysqli_query($connect, "update gallery set photo='$targetFile' where id=$id");
+
+        if ($result) {
+            $response['success'] = "Photo Edited Successfully";
+        } else {
+            $response['failed'] = 'Fail...!';
+        }
+
+        echo json_encode($response);
+    } else if ($_POST['action'] == 'delete-gallery') {
+        $id = $_POST['id'];
+
+        $result = mysqli_query($connect, "delete from gallery where id = '$id'");
+        if ($result) {
+            $response['success'] = 'Photo deleted successfully';
+        } else {
+            $response['failed'] = "Photo deletion Failed...!";
+        }
+
+        echo json_encode($response);
+    }
+
+    // holiday tour delete
+
+    else if ($_POST['action'] == 'delete-holiday') {
+        $id = $_POST['id'];
+
+        $result = mysqli_query($connect, "delete from holiday where id = '$id'");
+
+        if ($result) {
+            $response['success'] = "Holiday tour Deleted Successfully";
+        } else {
+            $response['failed'] = "Failed to delete....";
+        }
+
+        echo json_encode($response);
+    }
+
+    // spiritual tour delete 
+
+    else if ($_POST['action'] == 'delete-spiritual') {
+        $id = $_POST['id'];
+
+        $result = mysqli_query($connect, "delete from spiritual where id = '$id'");
+
+        if ($result) {
+            $response['success'] = "Spiritual tour Deleted Successfully";
+        } else {
+            $response['failed'] = "Failed to delete....";
+        }
+
+        echo json_encode($response);
+    }
+    else if ($_POST['action'] == 'add-traiff') {
+        $name = $_POST['vehical_name'];
+        $b_rate = $_POST['base_rate'];
+        $per_km = $_POST['per_km'];
+        $seats = $_POST['seats'];
+        $passengers = $_POST['passengers'];
+        
+
+        $result = mysqli_query($connect, "insert into traiff (vehicle_name,base_rate,per_km_rate,seats,passengers) values('$name','$b_rate','$per_km','$seats','$passengers')");
+
+        if ($result) {
+            $response['success'] = "Traiff added Successfully";
+        } else {
+            $response['failed'] = 'Fail...!';
+        }
+
+        echo json_encode($response);
+    } else if ($_POST['action'] == 'edit-traiff') {
+        $id = $_POST['id'];
+        $name = $_POST['vehical_name'];
+        $b_rate = $_POST['base_rate'];
+        $per_km = $_POST['per_km'];
+        $seats = $_POST['seats'];
+        $passengers = $_POST['passengers'];
+
+        $result = mysqli_query($connect, "update traiff set vehicle_name='$name',base_rate='$b_rate',per_km_rate='$per_km',seats='$seats',passengers='$passengers' where id=$id");
+
+        if ($result) {
+            $response['success'] = "Traiff Edited Successfully";
+        } else {
+            $response['failed'] = 'Fail...!';
+        }
+
+        echo json_encode($response);
+    }
+    else if ($_POST['action'] == 'delete-traiff') {
+        $id = $_POST['id'];
+
+        $result = mysqli_query($connect, "delete from traiff where id = '$id'");
+
+        if ($result) {
+            $response['success'] = "Traiff Deleted Successfully";
+        } else {
+            $response['failed'] = "Failed to delete....";
+        }
+
         echo json_encode($response);
     }
 }

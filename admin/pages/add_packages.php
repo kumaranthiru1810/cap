@@ -1,69 +1,58 @@
 <?php
 include('./includes/topbar.php');
+$count = 0;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $data = mysqli_fetch_assoc(mysqli_query($connect, "select * from packages where id='$id'"));
+    $db = $_GET['db'];
+    $count++;
+    $data = mysqli_fetch_assoc(mysqli_query($connect, "select * from $db where id='$id'"));
 }
 ?>
 
 <div class="container">
-    <h1>TOUR PACKAGES</h1>
+    <h1>PACKAGES</h1>
 
     <form id="add-packages-form">
         <?php if (isset($_GET['id'])) { ?>
             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
         <?php } ?>
 
-        <div class="form-group">
-            <label for="name">Package Name</label>
-            <input type="text" name="name" id="" class="form-control" placeholder="Package Name" value="<?php echo isset($data['name']) ? $data['name'] : '' ?>">
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description" id="" rows="5" class="form-control" placeholder="Description"><?php echo isset($data['description']) ? $data['description'] : '' ?></textarea>
-        </div>
-        <div class="form-group">
-            <label for="duration">Duration (In Days)</label>
-            <input type="number" name="duration" id="" class="form-control" min='1' placeholder="Duration" value="<?php echo isset($data['duration']) ? $data['duration'] : '' ?>">
-        </div>
-        <div class="form-group">
-            <label for="price">Price</label>
-            <input type="number" name="price" id="" class="form-control" min='0' placeholder="Price" value="<?php echo isset($data['price']) ? $data['price'] : '' ?>">
-        </div>
-        <div class="form-group">
-            <label for="places">Places</label>
-            <input type="text" name="places" id="" class="form-control" placeholder="Places" value="<?php echo isset($data['place']) ? $data['place'] : '' ?>">
-        </div>
-
-        <?php if (isset($data['image'])) { ?>
-            <img src="<?php echo $data['image']; ?>" width="100"><br><br>
+        <?php if (isset($_GET['db'])) { ?>
+            <input type="hidden" name="db" value="<?php echo $_GET['db'] ?>">
         <?php } ?>
 
         <div class="form-group">
-            <label for="image">Image</label><br>
-            <input type="file" name="image" id="">
-            <?php
-            if (isset($data['image'])) { ?>
-                <input type="hidden" name="existing_image" id="existing_image" value="<?php echo $data['image'] ?>">
-            <?php } ?>
+            <label for="title">Package Name</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Package Name" value="<?php echo isset($data['title']) ? $data['title'] : '' ?>">
         </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" name="content" id="content" placeholder="Packages Content" rows="4"><?php echo isset($data['content']) ? $data['content'] : '' ?></textarea>
+        </div>
+
+
+        <?php if (isset($data['photo'])) { ?>
+            <img src="<?php echo $data['photo']; ?>" width="100"><br><br>
+        <?php } ?>
 
         <div class="form-group">
-            <label for="status">Status</label>
-            <select name="status" id="" class="form-control">
-                <?php if (isset($data['status'])) { ?>
-                    <option selected value="<?php echo $data['status'] ?>">
-                        <?php
-                        echo $data['status'];
-                        ?>
-                    </option>
-                <?php } ?>
-
-                <option value="active">active</option>
-                <option value="inactive">inactive</option>
-            </select>
+            <label for="photo">Photo</label><br>
+            <input type="file" name="photo" id="">
+            <?php
+            if (isset($data['photo'])) { ?>
+                <input type="hidden" name="existing_image" id="existing_image" value="<?php echo $data['photo'] ?>">
+            <?php } ?>
         </div>
-
+        <?php if ($count == 0) { ?>
+            <div class="form-group">
+                <select name="category" id="category">
+                    <option value="" disabled selected>Select Categories</option>
+                    <option value="packages">common</option>
+                    <option value="holiday">Holiday Tour</option>
+                    <option value="spiritual">Spiritual Tour</option>
+                </select>
+            </div>
+        <?php } ?>
         <input type="submit" value="Save" name="save" class="btn btn-success">
     </form>
 </div>
@@ -74,10 +63,19 @@ if (isset($_GET['id'])) {
             event.preventDefault();
 
             var formData = new FormData(this);
+            let redirectPage = "list_packages.php"; // default redirect
+
             if ($('input[name="id"]').length > 0) {
-                formData.append('action', 'edit-package');
+                // Editing existing
+                formData.append('action', 'edit-packages');
+                redirectPage = "list_" + $('input[name="db"]').val() + ".php";
             } else {
+                // Adding new
                 formData.append('action', 'add-packages');
+                let category = $('#category').val();
+                if (category) {
+                    redirectPage = "list_" + category + ".php";
+                }
             }
 
             $.ajax({
@@ -90,9 +88,9 @@ if (isset($_GET['id'])) {
                 success: function(response) {
                     if (response.success) {
                         alert(response.success);
-                        window.location.href = 'list_packages.php';
+                        window.location.href = redirectPage;
                     } else {
-                        console.log("Failed...")
+                        console.log("Failed...");
                     }
                 }
             })

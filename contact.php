@@ -17,7 +17,7 @@
 
 
     <title>garudaholidaystravels
-</title>
+    </title>
 </head>
 
 <body>
@@ -31,8 +31,8 @@
                             <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
                         </div>
                         <div>
-                            <p><i class="fa-solid fa-envelope"></i> garudaholidaystravels@gmail.com 
-</p>
+                            <p><i class="fa-solid fa-envelope"></i> garudaholidaystravels@gmail.com
+                            </p>
                         </div>
                         <div>
                             <p><i class="fa-solid fa-user"></i> <a href="login.php" style="color: white; text-decoration:none;">Login</a></p>
@@ -49,9 +49,9 @@
                         <!-- Left section (Phone & Email) -->
                         <div class="d-flex flex-row ">
                             <div>
-                            <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
-                            <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
-                        </div>&nbsp;&nbsp;&nbsp;
+                                <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
+                                <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
+                            </div>&nbsp;&nbsp;&nbsp;
                             <div>
                                 <p><i class="fa-solid fa-envelope"></i> garudaholidaystravels@gmail.com </p>
                             </div>
@@ -149,8 +149,8 @@
                 <div class="text-center">
                     <i class="fa-solid fa-envelope fa-3x"></i>
                     <h2>Email Us</h2>
-                    <p>garudaholidaystravels@gmail.com 
-</p>
+                    <p>garudaholidaystravels@gmail.com
+                    </p>
                 </div>
             </div>
             <div class="col-12 col-md-4 contact-container mb-4">
@@ -158,8 +158,8 @@
                     <i class="fa-solid fa-phone-volume fa-3x"></i>
                     <h2>Call Us</h2>
                     <p>+91 9442833903 <br>+91 8248935180 </p>
-                     
-</p>
+
+                    </p>
                 </div>
             </div>
             <div class="bg-white d-md-flex flex-row shadow-lg p-md-5 mt-4 mb-5 rounded-lg py-5">
@@ -170,44 +170,44 @@
                 <div class="col-12 col-md-6 pb-5">
                     <div class="contact-form-container">
                         <h2>Share Your Comments</h2>
-                        <form>
+                        <form method='POST' action="">
                             <div class="input-group mb-4">
-                                <input type="text" class="form-control" placeholder="Your Name">
+                                <input type="text" class="form-control" placeholder="Your Name" name="uname" id='uname'>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                                 </div>
                             </div>
 
                             <div class="input-group mb-4">
-                                <input type="text" class="form-control" placeholder="Phone No">
+                                <input type="text" class="form-control" placeholder="Phone No" name="uphone" id='uphone'>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-phone-volume"></i></span>
                                 </div>
                             </div>
 
                             <div class="input-group mb-4">
-                                <input type="email" class="form-control" placeholder="Email Address">
+                                <input type="email" class="form-control" placeholder="Email Address" name='umail' id='umail'>
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
                                 </div>
                             </div>
 
                             <div class="input-group mb-4">
-                                <textarea class="form-control" placeholder="Write your message" rows="4"></textarea>
+                                <textarea class="form-control" placeholder="Write your message" rows="4" name='umessage' id='umessage'></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn btn-primary" id='submitBtn'>Send Message</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>.
 
 
     <!-- Footer -->
 
-    <?php include('./include/footer.php')?>
+    <?php include('./include/footer.php') ?>
 
     <!-- End Footer -->
 
@@ -223,6 +223,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+
+    <script>
+        const uname = document.getElementById("uname");
+        const uphone = document.getElementById("uphone");
+        const umail = document.getElementById("umail");
+        const umessage = document.getElementById("umessage");
+        const submitBtn = document.getElementById("submitBtn");
+
+        function validateForm() {
+            let phonePattern = /^[0-9]{10}$/;
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+
+            if (
+                uname.value.trim() !== "" &&
+                phonePattern.test(uphone.value.trim()) &&
+                emailPattern.test(umail.value.trim()) &&
+                umessage.value.trim() !== ""
+            ) {
+                submitBtn.disabled = false; // ✅ enable
+            } else {
+                submitBtn.disabled = true; // ❌ disable
+            }
+        }
+
+        // Run validation on every input change
+        [uname, uphone, umail, umessage].forEach(field => {
+            field.addEventListener("input", validateForm);
+        });
+    </script>
 </body>
 
 </html>

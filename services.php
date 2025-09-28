@@ -16,11 +16,12 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 
-    <title>garudaholidaystravels
+    <title>thirumalaigarudaholidaystravels
 </title>
 </head>
 
 <body>
+    <?php include('./db.php'); ?>
     <div class="container-fluid bg-container9">
         <div class="row">
             <div class="col-12">
@@ -175,19 +176,21 @@
                 <p>Organized Tours</p>
                 <h1>Services</h1>
             </div>
+            <?php 
+                $sql = "SELECT * FROM services";
+                $res = $conn->query($sql);
+                while($row = $res->fetch_assoc()){
+            ?>
             <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
-                    <img src="./img/services/tempo.jpg" class="img-fluid"/>
-                    <h2>AC tempo on hire </h2>
-                    <p>Hire our air-conditioned tempo travellers for comfortable group travel and long-distance trips.
-Our fleet includes 14, 16, and 18-seater tempos, all equipped with powerful AC to ensure a
-smooth and relaxing journey for all passengers. These spacious and well-maintained vehicles are
-
-perfect for any group adventure.</p>
+                    <img src="./img/services/<?php echo $row['photo']; ?>" class="img-fluid"/>
+                    <h2><?php echo $row['title']; ?> </h2>
+                    <p><?php echo $row['content']; ?></p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mt-3">
+            <?php } ?>
+            <!-- <div class="col-12 col-md-4 mt-3">
                 <div class="offer-container text-center">
                     <img src="./img/services/ts.jpg" class="img-fluid"/>
                     <h2>Taxi service</h2>
@@ -256,7 +259,7 @@ Enjoy flexible hire durations with professional drivers for a hassle-free journe
                     <p>Mudumalai, Valparai, Anamalai Tiger Reserve, Masinagudi, Satyamangalam, Mundanthurai Tiger Reserve, Megamalai</p>
                     <button><a href="book.php" style="color: black;text-decoration:none;">Book Now</a></button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
