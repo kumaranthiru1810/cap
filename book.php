@@ -1,5 +1,6 @@
 <?php
-    include("db.php");
+session_start();
+    include("db.php");    
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,19 @@
     .input-group-text{
         background-color:#ECECEC;
     }
+    input[type="date"]::-webkit-calendar-picker-indicator{
+        display: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    input[type="date"]{
+        -moz-appearance: textfield;
+    }
+    input[type="time"]::-webkit-calendar-picker-indicator{
+        display: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
 </style>
 
 </head>
@@ -51,7 +65,13 @@
                             <p><i class="fa-solid fa-envelope"></i> garudaholidaystravels@gmail.com</p>
                         </div>
                         <div>
-                            <p><i class="fa-solid fa-user"></i> <a href="login.php" style="color: white; text-decoration:none;">Login</a></p>
+                            <p style="background: none; color:white;">
+                            <?php if(isset($_SESSION['username'])){ ?>
+                                <a href="logout.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                            <?php } else{ ?>
+                                <a href="login.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-user"></i>Login</a>
+                             <?php } ?>                            
+                            </p>
                         </div>
                     </div>
                     <div>
@@ -80,7 +100,13 @@
                 
                         <!-- Right section (Login) -->
                         <div class="mr-5">
-                            <p><i class="fa-solid fa-user"></i> <a href="login.php" style="color: white; text-decoration:none;">Login</a></p>
+                            <p style="background: none; color:white;">
+                            <?php if(isset($_SESSION['username'])){ ?>
+                                <a href="logout.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                            <?php } else{ ?>
+                                <a href="login.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-user"></i>Login</a>
+                             <?php } ?>                            
+                            </p>
                         </div>
                     </div>
                 </div><br/> 
@@ -222,18 +248,18 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                <input type="text" name="udate" class="form-control" placeholder="Enter Date with dd/mm/yyyy or dd.mm.yyyy" id="date" required>
+                                <input type="date" name="udate" class="form-control" placeholder="Select Date" id="date" min="<?php echo date('Y-m-d'); ?>" required>
                                 <div class="input-group-append" id="calendar-icon">
-                                    <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                    <span class="input-group-text"><i class="fa-solid fa-calendar-days" onclick="document.getElementById('date').showPicker()"></i></span>
                                 </div>
                             </div>
-                            <span id="dateError" class="error">Enter a Valid Date</span>
+                            <!-- <span id="dateError" class="error">Enter a Valid Date</span> -->
                         </div>
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                    <input type="text" name="utime" class="form-control" placeholder="Enter Time with AM/PM" id="time" title="Enter Time With AM / PM Format">
+                                    <input type="time" name="utime" class="form-control" placeholder="Enter Time with AM/PM" id="time" title="Enter Time With AM / PM Format">
                                     <div class="input-group-append">
-                                        <span class="input-group-text"><i class="fa-regular fa-clock"></i></span>
+                                        <span class="input-group-text"><i class="fa-regular fa-clock" onclick="document.getElementById('time').showPicker()"></i></span>
                                     </div>
                             </div>
                             <span id="timeError" class="error">Enter Time </span>
@@ -303,7 +329,10 @@
     </div>
 
     <?php
+    
+
         if(isset($_POST['bookbtn'])){
+            if(isset($_SESSION['username'])){
             $uname =mysqli_real_escape_string($conn , $_POST['uname']);
             $uemail = mysqli_real_escape_string($conn , $_POST['uemail']);
             $upassenger = mysqli_real_escape_string($conn , $_POST['upassenger']);
@@ -322,7 +351,14 @@
                     window.location.href = 'index.php';
             </script>";
         }
+        else{
+        echo"<script>alert('User not found ! Login First . Next Book Cab ...');
+                     window.location.href='login.php';
+        </script>";
+    }
+    }
     ?>
+    
     
 
 
@@ -384,28 +420,6 @@
         valid = false;
       } else {
         phoneError.style.display = "none";
-      }
-
-      // Date (dd/mm/yyyy or dd.mm.yyyy)
-      let date = document.getElementById("date").value.trim();
-      let dateError = document.getElementById("dateError");
-      let dateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/.](0?[1-9]|1[0-2])[\/.](\d{4})$/;
-      if (!dateRegex.test(date)) {
-        dateError.style.display = "inline";
-        valid = false;
-      } else {
-        dateError.style.display = "none";
-      }
-
-      // Time (hh:mm AM/PM or hh.mm AM/PM)
-      let time = document.getElementById("time").value.trim();
-      let timeError = document.getElementById("timeError");
-      let timeRegex = /^(0?[1-9]|1[0-2])[:.][0-5][0-9]\s?(AM|PM)$/i;
-      if (!timeRegex.test(time)) {
-        timeError.style.display = "inline";
-        valid = false;
-      } else {
-        timeError.style.display = "none";
       }
 
 

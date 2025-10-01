@@ -275,12 +275,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fullname = mysqli_real_escape_string($conn, $fullname);
     $email = mysqli_real_escape_string($conn, $email);
     $password = mysqli_real_escape_string($conn, $password);
+    $status = 'registered';
 
     // Insert query
-    $sql = "INSERT INTO users (fullname, email, password) VALUES ('$fullname', '$email', '$password')";
+    $sql = "INSERT INTO user (fullname, email, password, status) VALUES ('$fullname', '$email', '$password', '$status')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Account created successfully!');</script>";
+        echo "<script>alert('Account created successfully! Redirecting to Login Page...');
+                window.location.href = 'login.php';
+        </script>";
     } else {
         echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
     }
