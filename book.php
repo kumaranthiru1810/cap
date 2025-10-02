@@ -257,7 +257,7 @@ session_start();
                         </div>
                         <div class="form-group col-md-6">
                             <div class="input-group">
-                                    <input type="time" name="utime" class="form-control" placeholder="Enter Time with AM/PM" id="time" title="Enter Time With AM / PM Format">
+                                    <input type="time" name="utime" class="form-control" min="10:00" max="22:00" placeholder="Enter Time with AM/PM" id="time" title="Enter Time With AM / PM Format">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa-regular fa-clock" onclick="document.getElementById('time').showPicker()"></i></span>
                                     </div>
@@ -308,7 +308,15 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="serviceType" placeholder="Service Type" id="servicetype">
+                                    <select class="form-control" name="serviceType" id="servicetype" style=" height:55px;border:0; border-top-left-radius:50px; border-bottom-left-radius:50px; background-color:#ECECEC;">
+                                        <option selected disabled hidden>Select Service Type</option>
+                                        <?php 
+                                            $serve = mysqli_query($conn , "SELECT * FROM services");
+                                            while($res = mysqli_fetch_assoc($serve)){
+                                                echo "<option>".$res['title']."</option>";
+                                            }
+                                        ?>
+                                    </select>
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fa-solid fa-gear"></i></span>
                                     </div>
@@ -346,7 +354,7 @@ session_start();
             $service = mysqli_real_escape_string($conn , $_POST['serviceType']);
             $status = 'registered';
 
-            mysqli_query($conn , "INSERT INTO users(username,useremail,passengers,phone,pickupaddress,dropaddress,date,time,cartype,carmodel,servicetype,status) VALUES ('$uname','$uemail','$upassenger','$uphone','$upickaddress','$udropaddress','$udate','$utime','$cartype','$carmodel','$service','$status')");
+            mysqli_query($conn , "INSERT INTO bookers(username,useremail,passengers,phone,pickupaddress,dropaddress,date,time,cartype,carmodel,servicetype,status) VALUES ('$uname','$uemail','$upassenger','$uphone','$upickaddress','$udropaddress','$udate','$utime','$cartype','$carmodel','$service','$status')");
             echo "<script>alert('Booking successfully');
                     window.location.href = 'index.php';
             </script>";
