@@ -39,16 +39,6 @@ session_start();
         }
 
         /* Overlay to darken background */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            z-index: -1;
-        }
 
         /* Centered login box */
         .login-container {
@@ -125,6 +115,23 @@ session_start();
                 padding: 30px 20px;
             }
         }
+
+        .navbar-toggler {
+            height: 35px;
+            width: 9%;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background-color: #FFC107;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            color: black;
+        }
+
+        .navbar-toggler:hover {
+            background-color: #e0aa06;
+        }
     </style>
 </head>
 
@@ -134,7 +141,7 @@ session_start();
             <div class="col-12">
                 <div class="d-md-none">
                     <div class="header-container1 d-flex flex-row justify-content-between text-white mt-2">
-                        <div class="mr-4 ml-5">
+                        <div class="mr-4">
                             <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
                             <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
                         </div>
@@ -156,7 +163,7 @@ session_start();
                     <div class="d-flex justify-content-between align-items-center mt-2 text-white">
                         <!-- Left section (Phone & Email) -->
                         <div class="d-flex flex-row ">
-                            <div class="mr-4 ml-5">
+                            <div class="mr-4">
                                 <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
                                 <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
                             </div>
@@ -263,9 +270,7 @@ session_start();
         // Escape input
         $email = mysqli_real_escape_string($conn, $email);
 
-        // Check if user exists
-        $sql = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
-
+        $sql = mysqli_query($conn, "SELECT * FROM user WHERE email='$email'");
         if ($sql) {
             $res = mysqli_fetch_assoc($sql);
 
@@ -273,12 +278,11 @@ session_start();
             if (password_verify($password, $res['password'])) {
                 // die(print_r($res['fullname']));
                 $_SESSION['username'] = $res['fullname'];
-                if(isset($_SESSION['username'])){
+                if (isset($_SESSION['username'])) {
                     echo "<script>alert('session successful!');
                           window.location.href='index.php';
                         </script>";
-                }
-                else{
+                } else {
                     echo "<script>alert('session failed')</script>";
                 }
                 echo "<script>alert('Login successful!');

@@ -16,7 +16,7 @@
                             rides with best
                             quality services. </p>
                             <div class="d-flex flex-grow-1 mr-5">
-                            <img src="../img/logo1.png" alt="logo" class="img-fluid" style="max-width: 150px;margin-bottom: 40px;" />
+                            <img src="./img/logo.png" alt="logo" class="img-fluid" style="max-width: 150px;margin-bottom: 40px;" />
                         </div>
                     </div>
                     <div class="col-12 col-md-3 footer_content ">
