@@ -27,7 +27,7 @@ include('./includes/topbar.php');
         <tbody>
             <?php
             $i = 1;
-            $result = mysqli_query($connect, "select * from users");
+            $result = mysqli_query($connect, "select * from bookers");
             while ($data = mysqli_fetch_assoc($result)) {
             ?>
                 <tr>

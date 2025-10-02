@@ -119,6 +119,7 @@ session_start();
             background-color: #e0aa06;
         }
 
+
         /* Responsive */
         @media (max-width: 480px) {
             .login-box {
@@ -134,7 +135,7 @@ session_start();
             <div class="col-12">
                 <div class="d-md-none">
                     <div class="header-container1 d-flex flex-row justify-content-between text-white mt-2">
-                        <div class="mr-4 ml-5">
+                        <div class="mr-4">
                             <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
                             <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
                         </div>
@@ -156,7 +157,7 @@ session_start();
                     <div class="d-flex justify-content-between align-items-center mt-2 text-white">
                         <!-- Left section (Phone & Email) -->
                         <div class="d-flex flex-row ">
-                            <div class="mr-4 ml-5">
+                            <div class="mr-4">
                                 <p><i class="fa-solid fa-phone"></i> +91 9442833903</p>
                                 <p><i class="fa-solid fa-phone"></i> +91 8248935180</p>
                             </div>
@@ -262,13 +263,10 @@ session_start();
         $password = trim($_POST["password"]);
         // Escape input
         $email = mysqli_real_escape_string($conn, $email);
-
         // Check if user exists
         $sql = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
-
-        if ($sql) {
-            $res = mysqli_fetch_assoc($sql);
-
+        $res = mysqli_fetch_assoc($sql);
+        if (!($res=='')) {
             // Verify password
             if (password_verify($password, $res['password'])) {
                 // die(print_r($res['fullname']));
