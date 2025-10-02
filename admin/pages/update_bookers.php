@@ -5,7 +5,7 @@ include("./includes/db.php");
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $result = mysqli_query($connect, "SELECT * FROM users WHERE id='$id'");
+    $result = mysqli_query($connect, "SELECT * FROM bookers WHERE id='$id'");
     $data = mysqli_fetch_assoc($result);
 }
 ?>
@@ -101,10 +101,10 @@ if (isset($_GET['id'])) {
         $servicetype = mysqli_real_escape_string($connect , $_POST['servicetype']);
         $status = mysqli_real_escape_string($connect , $_POST['status']);
 
-        $res = mysqli_query($connect , "UPDATE users SET username = '$uname' , useremail = '$uemail' , passengers = '$passengers' , phone = '$phone' , pickupaddress = '$pickupaddress' , dropaddress = '$dropaddress' , date = '$date' , time = '$time' , cartype = '$cartype' , carmodel = '$carmodel' , servicetype = '$servicetype' , status = '$status' WHERE id='$id'");
+        $res = mysqli_query($connect , "UPDATE bookers SET username = '$uname' , useremail = '$uemail' , passengers = '$passengers' , phone = '$phone' , pickupaddress = '$pickupaddress' , dropaddress = '$dropaddress' , date = '$date' , time = '$time' , cartype = '$cartype' , carmodel = '$carmodel' , servicetype = '$servicetype' , status = '$status' WHERE id='$id'");
         if($res){
             echo "<script>alert('updated Successfully');
-                    window.location.href = 'list_users.php';
+                    window.location.href = 'list_bookers.php';
             </script>";
         }
     }

@@ -109,6 +109,7 @@ session_start();
             background-color: #e0aa06;
         }
 
+
         /* Responsive */
         @media (max-width: 480px) {
             .login-box {
@@ -270,9 +271,10 @@ session_start();
         // Escape input
         $email = mysqli_real_escape_string($conn, $email);
 
-        $sql = mysqli_query($conn, "SELECT * FROM user WHERE email='$email'");
-        if ($sql) {
-            $res = mysqli_fetch_assoc($sql);
+        // Check if user exists
+        $sql = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
+        $res = mysqli_fetch_assoc($sql);
+        if (!($res=='')) {
 
             // Verify password
             if (password_verify($password, $res['password'])) {

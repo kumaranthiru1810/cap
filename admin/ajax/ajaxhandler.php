@@ -245,7 +245,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else if ($_POST['action'] == 'delete-packages') {
         $id = $_POST['id'];
 
-        $result = mysqli_query($connect, "delete from package where id = '$id'");
+        $result = mysqli_query($connect, "delete from packages where id = '$id'");
 
         if ($result) {
             $response['success'] = "Packages Deleted Successfully";

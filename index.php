@@ -51,7 +51,7 @@
                     </div>
                     <div>
                         <div class="text-center">
-                            <img src="./img/logo1.png" alt="logo" />
+                            <img src="./img/logo.png" alt="logo" />
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                 <div class="row">
                     <div class="mt-5">
                         <div class="d-md-flex flex-row justify-content-between">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-7">
                                 <div class="text-white banner-text">
                                     <p>Looking for Cab?</p>
                                     <h1>Make your Booking</h1>
@@ -168,8 +168,14 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 form-container">
-                                <form>
+                            <div class="col-12 col-md-4" style="margin-top: -55px;">
+                                <div class="home-text1 mb-3 text-center">
+                                    <img src="./img/car_for_index.png" alt="" height="230" width="300"><br>
+                                </div>
+                                <div class="home-text1 mb-3 text-center">
+                                    <button><a href="book.php" style="color:black;text-decoration:none;">Book Your Cab</a></button>
+                                </div>
+                                <!-- <form>
                                     <div class="d-md-flex flex-row justify-content-between">
                                         <div class="input-group mb-4 mr-3">
                                             <input type="text" class="form-control" placeholder="Your Name">
@@ -228,7 +234,7 @@
                                         </div>
                                         <!-- <input type="button" class="input-group-text" value="Choose Your Cab"/> -->
                                     </div>
-                                </form>
+                                </form> -->
                             </div>
                         </div>
                     </div>
