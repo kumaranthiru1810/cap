@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +41,13 @@
                             <p><i class="fa-solid fa-envelope"></i> garudaholidaystravels@gmail.com</p>
                         </div>
                         <div>
-                            <p><i class="fa-solid fa-user"></i> <a href="login.php" style="color: white; text-decoration:none;">Login</a></p>
+                            <p style="background: none; color:white;">
+                            <?php if(isset($_SESSION['username'])){ ?>
+                                <a href="logout.php" onclick="return confirm('Are you sure you want to logout?');" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                            <?php } else{ ?>
+                                <a href="login.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-user"></i>Login</a>
+                             <?php } ?>                            
+                            </p>
                         </div>
                     </div>
                     <div>
@@ -66,8 +76,14 @@
                         </div>
                 
                         <!-- Right section (Login) -->
-                        <div class="mr-5">
-                            <p><i class="fa-solid fa-user"></i> <a href="login.php" style="color: white; text-decoration:none;">Login</a></p>
+                        <div>
+                            <p style="background: none; color:white;">
+                            <?php if(isset($_SESSION['username'])){ ?>
+                                <a href="logout.php" onclick="return confirm('Are you sure you want to logout?');" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                            <?php } else{ ?>
+                                <a href="login.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-user"></i>Login</a>
+                             <?php } ?>                            
+                            </p>
                         </div>
                     </div>
                 </div><br/> 

@@ -41,7 +41,7 @@
                         <div>
                             <p style="background: none; color:white;">
                             <?php if(isset($_SESSION['username'])){ ?>
-                                <a href="logout.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                                <a href="logout.php" onclick="return confirm('Are you sure you want to logout?');" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
                             <?php } else{ ?>
                                 <a href="login.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-user"></i>Login</a>
                              <?php } ?>                            
@@ -76,7 +76,7 @@
                         <div class="mr-5">
                             <p style="background: none; color:white;">
                             <?php if(isset($_SESSION['username'])){ ?>
-                                <a href="logout.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                                <a href="logout.php" onclick="return confirm('Are you sure you want to logout?');" style="color: white; text-decoration:none;"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
                             <?php } else{ ?>
                                 <a href="login.php" style="color: white; text-decoration:none;"><i class="fa-solid fa-user"></i>Login</a>
                              <?php } ?>                            
