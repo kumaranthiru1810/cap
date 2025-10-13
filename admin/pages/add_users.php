@@ -27,11 +27,6 @@ if (isset($_GET['id'])) {
                 <input type="email" name="useremail" id="useremail" class="form-control" placeholder="Enter User Email" value="<?php echo isset($data['email']) ? $data['email'] : ''; ?>">
             </div>
 
-            <div class="form-group">
-                <label for="userpassword" class="font-style-bold">User Password</label>
-                <input type="password" name="userpassword" id="userpassword" class="form-control" placeholder="Enter User Password" value="<?php echo isset($data['password']) ? $data['password'] : ''; ?>">
-            </div>
-
             <input type="submit" value="Save" name="submit" class="btn btn-success">
         </form>
     </div>
@@ -41,9 +36,8 @@ if (isset($_GET['id'])) {
     if(isset($_POST['submit'])){
         $name = mysqli_real_escape_string($connect , $_POST["username"]);
         $email = mysqli_real_escape_string($connect , $_POST["useremail"]);
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Encrypt Password
 
-        $res = mysqli_query($connect , "UPDATE user SET fullname='$name', email='$email', password='$password'");
+        $res = mysqli_query($connect , "UPDATE user SET fullname='$name', email='$email' WHERE id='$id'");
         if($res){
             echo"<script>alert('Updated Users Successfully');
                          window.location.href = 'list_users.php';   

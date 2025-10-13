@@ -11,7 +11,7 @@ include("./includes/db.php");
                 <th scope="col" style="border-right: 1px solid #dee2e6;">#</th>
                 <th scope="col" style="border-right: 1px solid #dee2e6;">User Name</th>
                 <th scope="col" style="border-right: 1px solid #dee2e6;">User Email</th>
-                <th scope="col" style="border-right: 1px solid #dee2e6;">User Password</th>
+                <!-- <th scope="col" style="border-right: 1px solid #dee2e6;">User Password</th> -->
                 <th scope="col" style="border-right: 1px solid #dee2e6;">Status</th>
                 <th scope="col" style="border-right: 1px solid #dee2e6;">Actions</th>
             </tr>
@@ -26,7 +26,7 @@ include("./includes/db.php");
                     <td style="border-right: 1px solid #dee2e6;"><?php echo $i++; ?></td>
                     <td style="border-right: 1px solid #dee2e6;"><?php echo $data['fullname'] ?></td>
                     <td style="border-right: 1px solid #dee2e6;"><?php echo $data['email'] ?></td>
-                    <td style="border-right: 1px solid #dee2e6;"><?php echo $data['password'] ?></td>
+                    <!-- <td style="border-right: 1px solid #dee2e6;"><?php echo $data['password'] ?></td> -->
                     <td><span class="p-2 rounded-lg text-white <?php echo $data['status']=='registered' ? 'bg-success' : 'bg-danger' ?>"><?php echo $data['status'] ?></span></td>
                     <td style="border-right: 1px solid #dee2e6;">
                         <!-- <img style="cursor: pointer;" onclick="edit_cabs(<?php echo $data['id'] ?>)" src="./icons/edit.svg" width="30" alt=""> -->

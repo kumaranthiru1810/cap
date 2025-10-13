@@ -68,12 +68,12 @@
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manage-traiff"
              aria-expanded="true" aria-controls="manage-traiff">
              <i class="fas fa-fw fa-user"></i>
-             <span>Traiff</span>
+             <span>Tariff</span>
          </a>
          <div id="manage-traiff" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
-                 <h6 class="collapse-header">Traiff</h6>
+                 <h6 class="collapse-header">Tariff</h6>
                  <a class="collapse-item" href="./add_traiff.php">Add</a>
                  <a class="collapse-item" href="./list_traiff.php">List</a>
              </div>
