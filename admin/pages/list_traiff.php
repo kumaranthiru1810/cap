@@ -4,7 +4,7 @@ include('./includes/topbar.php');
 
 
 <div class="container" id="table_container">
-    <h2>TRAIFF</h2>
+    <h2>TARIFF</h2>
     <table class="table" id="table">
         <thead>
             <tr>
